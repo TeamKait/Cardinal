@@ -1,0 +1,1 @@
+import{d as n,a as o,n as t,u as r,g as l,r as c,o as d}from"./index-QZJi-sPr.js";const m=n({__name:"CardTitle",props:{class:{}},setup(s){const a=s;return(e,p)=>(d(),o("h3",{"data-slot":"card-title",class:t(r(l)("leading-none font-semibold",a.class))},[c(e.$slots,"default")],2))}});export{m as _};
