@@ -14,7 +14,7 @@ const routes = useRouter().options.routes;
     </div>
 
     <div class="h-full">
-      <a class="flex-center gap-2 transition-colors hover:text-white" href="https://github.com/TeamKait/Arvavir" target="_blank">
+      <a class="flex-center gap-2 transition-colors hover:text-white" href="https://github.com/TeamKait/Cardinal" target="_blank">
         <SafeIcon icon="radix-icons:github-logo"/>
         Репозиторий проекта
       </a>

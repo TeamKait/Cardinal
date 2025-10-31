@@ -1,20 +1,29 @@
 <script setup lang="ts">
 import CircleButton from "@/components/customUI/buttons/CircleButton.vue";
 import SafeIcon from "@/components/customUI/SafeIcon.vue";
-import {DialogComponent, useCommonDialog} from "@/stores/CommonDialog.ts";
-import NewPost from "@/components/dialogs/NewPost.vue";
-import Post from "@/components/Post.vue";
+import PostComponent from "@/components/PostComponent.vue";
+import {usePosts} from "@/stores/Post.store.ts";
+import {onMounted, ref} from "vue";
+import {Spinner} from "@/components/ui/spinner";
+import {LoadingAction} from "@/ts/TryAction.ts";
 
-const dialog = useCommonDialog();
-function Test(){
-  dialog.DialogResults("Новый пост", new DialogComponent(NewPost))
-}
+const posts = usePosts();
+const loading = ref(true);
+
+onMounted(async () => {
+  await LoadingAction(async () => {
+    await posts.LoadPosts();
+  }, loading)
+})
 </script>
 
 <template>
-  <CircleButton @click="Test" variant="default" class="size-20 absolute right-5 bottom-45">
+  <CircleButton @click="posts.NewPost" variant="default" class="size-20 absolute right-5 bottom-45">
     <SafeIcon icon="radix-icons:plus" class="size-10"/>
   </CircleButton>
 
-  <Post/>
+  <Spinner v-if="loading" class="size-10"/>
+  <div class="flex flex-col gap-5">
+    <PostComponent v-for="post in posts.posts" :key="post.id ?? post.label" :post="post" />
+  </div>
 </template>
