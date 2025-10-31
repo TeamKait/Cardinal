@@ -18,6 +18,11 @@ const disliked = computed(() => !!props.post && !!uid.value && props.post.dislik
 
 const likeIcon = computed(() => liked.value ? 'mdi:thumbs-up' : 'mdi:thumbs-up-outline')
 const dislikeIcon = computed(() => disliked.value ? 'mdi:thumbs-down' : 'mdi:thumbs-down-outline')
+
+const createdAtText = computed(() => {
+  const d = props.post?.createdAt
+  return d ? new Intl.DateTimeFormat(undefined, { dateStyle: 'medium', timeStyle: 'short' }).format(d) : ''
+})
 </script>
 
 <template>
@@ -30,7 +35,10 @@ const dislikeIcon = computed(() => disliked.value ? 'mdi:thumbs-down' : 'mdi:thu
           </AvatarFallback>
         </Avatar>
 
-        <h1 class="text-2xl">{{ post?.user ?? 'NULL_USER' }}</h1>
+        <div class="flex flex-col">
+          <h1 class="text-2xl">{{ post?.user ?? 'NULL_USER' }}</h1>
+          <span v-if="createdAtText" class="text-xs text-muted-foreground">{{ createdAtText }}</span>
+        </div>
       </div>
     </CardHeader>
 

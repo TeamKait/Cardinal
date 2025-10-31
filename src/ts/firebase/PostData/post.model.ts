@@ -5,6 +5,7 @@ export class Post {
     public content: string
     public likesBy: string[]
     public dislikesBy: string[]
+    public createdAt?: Date
 
     public constructor(
         user: string,
@@ -12,7 +13,8 @@ export class Post {
         content: string,
         id?: string,
         likesBy?: string[],
-        dislikesBy?: string[]
+        dislikesBy?: string[],
+        createdAt?: Date
     ) {
         this.user = user
         this.label = label
@@ -20,6 +22,7 @@ export class Post {
         this.id = id
         this.likesBy = likesBy ?? []
         this.dislikesBy = dislikesBy ?? []
+        this.createdAt = createdAt
     }
 
     get likesCount(): number {

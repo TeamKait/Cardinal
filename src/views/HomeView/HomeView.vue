@@ -18,7 +18,7 @@ onMounted(async () => {
 </script>
 
 <template>
-  <CircleButton @click="posts.NewPost" variant="default" class="size-20 absolute right-5 bottom-45">
+  <CircleButton @click="posts.NewPost" variant="default" class="size-20 fixed right-5 bottom-5">
     <SafeIcon icon="radix-icons:plus" class="size-10"/>
   </CircleButton>
 
