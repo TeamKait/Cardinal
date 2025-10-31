@@ -12,6 +12,7 @@ export default defineConfig({
         vue(),
         vueDevTools(),
     ],
+    base: "/Cardinal/",
     resolve: {
         alias: {
             '@': path.resolve(__dirname, './src'),
