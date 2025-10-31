@@ -12,7 +12,9 @@
     "preview": "vite preview",
     "build-only": "vite build",
     "type-check": "vue-tsc --build",
-    "deploy": "gh-pages -d dist"
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist -b gh-pages",
+    "deploy:clean": "gh-pages-clean"
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.1.13",

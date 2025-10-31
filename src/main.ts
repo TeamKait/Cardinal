@@ -6,6 +6,7 @@ import App from './App.vue'
 import router from './router.ts'
 import './ts/firebase/firebase.ts'
 import {initAuthSync} from "@/ts/firebase/users/user.controller.ts";
+import "@/assets/style.css";
 
 const app = createApp(App)
 
