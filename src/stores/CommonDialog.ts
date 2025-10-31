@@ -29,7 +29,7 @@ export const useCommonDialog = defineStore('common dialog', () => {
 
     async function InnerHandleDialog(dialogLabel:string, cancelText:string, confirmText:string, ...dialogComponents: DialogComponent[]) {
         components.value = dialogComponents;
-        results.value = dialogComponents.map(c => c.props?.defaultValue);
+        results.value = dialogComponents.map(c => (c.props as any)?.defaultValue);
         conditions.value = Array(dialogComponents.length);
         config.label = dialogLabel;
         config.buttons = {
