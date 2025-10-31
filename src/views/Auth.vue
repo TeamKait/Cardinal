@@ -44,7 +44,6 @@ async function HandleButton(){
     await LoadingAction(() => createUser(emailInput.value, passwordInput.value), loading)
     await Login()
   }
-  await router.push("/")
 }
 
 async function Login(){
