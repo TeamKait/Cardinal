@@ -22,7 +22,7 @@ onMounted(async () => {
     <SafeIcon icon="radix-icons:plus" class="size-10"/>
   </CircleButton>
 
-  <Spinner v-if="loading" class="size-10"/>
+  <Spinner v-if="loading && posts.posts.length == 0" class="size-10"/>
   <div class="flex flex-col gap-5">
     <PostComponent v-for="post in posts.posts" :key="post.id ?? post.label" :post="post" />
   </div>
